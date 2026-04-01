@@ -801,6 +801,26 @@
     Reveal.on('slidechanged', updateActive);
     Reveal.on('ready', updateActive);
   })();
+
+  // Video controls: prevent Reveal.js from hijacking keyboard/click events on videos
+  (function() {
+    document.querySelectorAll('video').forEach(function(video) {
+      // Stop keyboard events (space, arrows) from reaching Reveal.js when video is focused
+      video.addEventListener('keydown', function(e) {
+        e.stopPropagation();
+      });
+      // Stop click from triggering Reveal.js slide navigation
+      video.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+      // Focus video when slide with video becomes active so keyboard works immediately
+      Reveal.on('slidechanged', function() {
+        var currentSlide = Reveal.getCurrentSlide();
+        var v = currentSlide.querySelector('video');
+        if (v) v.focus();
+      });
+    });
+  })();
 </script>
 </body>
 </html>
