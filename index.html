@@ -535,19 +535,64 @@
   </div>
 </section>
 
-<!-- ===== SLIDE 13: DEMO 2 VIDEO ===== -->
+<!-- ===== SLIDE 13: DEMO 2 STEP 1 — Slack 커맨드 ===== -->
 <section>
   <div style="display:flex; align-items:center; gap:8px; flex-shrink:0;">
     <span class="demo-num demo-num-2">DEMO 2</span>
-    <h2 style="font-size:1.1em; margin:0;">CXM 팀 클레임·기타배분 자동화</h2>
+    <h2 style="font-size:1.1em; margin:0;">Step 1. Slack에서 /claim 커맨드 실행</h2>
   </div>
-  <div style="flex:1; display:flex; align-items:center; justify-content:center; min-height:0; padding:8px 0;">
-    <video controls playsinline style="max-width:95%; max-height:calc(100% - 16px); border-radius:10px; border:2px solid var(--border); box-shadow:0 4px 20px rgba(0,0,0,0.1); object-fit:contain;">
-      <source src="test_video.mp4" type="video/mp4">
-      브라우저가 비디오를 지원하지 않습니다.
+  <p class="subtitle">스토어에서 클레임이 발생하면, Slack 커맨드 한 번으로 접수 시작</p>
+  <div style="flex:1; display:flex; align-items:center; justify-content:center; min-height:0; padding:4px 0;">
+    <video controls playsinline style="max-width:95%; max-height:calc(100% - 8px); border-radius:10px; border:2px solid var(--border); box-shadow:0 4px 20px rgba(0,0,0,0.1); object-fit:contain;">
+      <source src="test_video_clip1.mp4" type="video/mp4">
     </video>
   </div>
-  <div class="bottom-bar bar-teal">CXM 팀의 수작업 프로세스가 자동으로 처리되는 모습입니다</div>
+  <div class="bottom-bar bar-teal">사람이 하는 일 = Slack에서 커맨드 입력 + 정보 입력. 나머지는 전부 자동.</div>
+</section>
+
+<!-- ===== SLIDE 14: DEMO 2 STEP 2 — n8n Workflow ===== -->
+<section>
+  <div style="display:flex; align-items:center; gap:8px; flex-shrink:0;">
+    <span class="demo-num demo-num-2">DEMO 2</span>
+    <h2 style="font-size:1.1em; margin:0;">Step 2. n8n 워크플로우 자동 실행</h2>
+  </div>
+  <p class="subtitle">Slack 입력이 끝나면 n8n이 자동으로 워크플로우를 실행합니다</p>
+  <div style="flex:1; display:flex; align-items:center; justify-content:center; min-height:0; padding:4px 0;">
+    <video controls playsinline style="max-width:95%; max-height:calc(100% - 8px); border-radius:10px; border:2px solid var(--border); box-shadow:0 4px 20px rgba(0,0,0,0.1); object-fit:contain;">
+      <source src="test_video_clip2.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="bottom-bar bar-teal">클레임 유형 자동 분기 → 국내/해외 처리 경로가 자동으로 결정됩니다</div>
+</section>
+
+<!-- ===== SLIDE 15: DEMO 2 STEP 3 — 스프레드시트 자동 생성 ===== -->
+<section>
+  <div style="display:flex; align-items:center; gap:8px; flex-shrink:0;">
+    <span class="demo-num demo-num-2">DEMO 2</span>
+    <h2 style="font-size:1.1em; margin:0;">Step 3. 스프레드시트 자동 기록</h2>
+  </div>
+  <p class="subtitle">접수된 클레임 데이터가 Google Sheet에 자동으로 기록됩니다</p>
+  <div style="flex:1; display:flex; align-items:center; justify-content:center; min-height:0; padding:4px 0;">
+    <video controls playsinline style="max-width:95%; max-height:calc(100% - 8px); border-radius:10px; border:2px solid var(--border); box-shadow:0 4px 20px rgba(0,0,0,0.1); object-fit:contain;">
+      <source src="test_video_clip3.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="bottom-bar bar-teal">수동으로 스프레드시트에 값을 입력하던 작업이 완전히 사라집니다</div>
+</section>
+
+<!-- ===== SLIDE 16: DEMO 2 STEP 4 — OneDrive 엑셀 + 이메일 ===== -->
+<section>
+  <div style="display:flex; align-items:center; gap:8px; flex-shrink:0;">
+    <span class="demo-num demo-num-2">DEMO 2</span>
+    <h2 style="font-size:1.1em; margin:0;">Step 4. 엑셀 자동 생성 + 이메일 발송</h2>
+  </div>
+  <p class="subtitle">SAP용 엑셀 파일이 OneDrive에 자동 생성되고, 해외팀에게 이메일이 발송됩니다</p>
+  <div style="flex:1; display:flex; align-items:center; justify-content:center; min-height:0; padding:4px 0;">
+    <video controls playsinline style="max-width:95%; max-height:calc(100% - 8px); border-radius:10px; border:2px solid var(--border); box-shadow:0 4px 20px rgba(0,0,0,0.1); object-fit:contain;">
+      <source src="test_video_clip4.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="bottom-bar bar-teal">SAP Excel 수동 생성 + 이메일 수동 발송 → 전부 자동화 완료</div>
 </section>
 
 <!-- ===== SLIDE 14: TO-BE + STATS ===== -->
@@ -699,13 +744,13 @@
   <span class="slide-nav-sep">·</span>
   <button class="slide-nav-item" data-slide="11">데모2</button>
   <span class="slide-nav-sep">·</span>
-  <button class="slide-nav-item" data-slide="12">TO-BE</button>
+  <button class="slide-nav-item" data-slide="15">TO-BE</button>
   <span class="slide-nav-sep">·</span>
-  <button class="slide-nav-item" data-slide="13">시작하기</button>
+  <button class="slide-nav-item" data-slide="16">시작하기</button>
   <span class="slide-nav-sep">·</span>
-  <button class="slide-nav-item" data-slide="14">핵심 메시지</button>
+  <button class="slide-nav-item" data-slide="17">핵심 메시지</button>
   <span class="slide-nav-sep">·</span>
-  <button class="slide-nav-item" data-slide="15">감사합니다</button>
+  <button class="slide-nav-item" data-slide="18">감사합니다</button>
 </nav>
 
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
