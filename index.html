@@ -805,20 +805,33 @@
   // Video controls: prevent Reveal.js from hijacking keyboard/click events on videos
   (function() {
     document.querySelectorAll('video').forEach(function(video) {
-      // Stop keyboard events (space, arrows) from reaching Reveal.js when video is focused
-      video.addEventListener('keydown', function(e) {
-        e.stopPropagation();
-      });
-      // Stop click from triggering Reveal.js slide navigation
-      video.addEventListener('click', function(e) {
-        e.stopPropagation();
-      });
-      // Focus video when slide with video becomes active so keyboard works immediately
-      Reveal.on('slidechanged', function() {
-        var currentSlide = Reveal.getCurrentSlide();
-        var v = currentSlide.querySelector('video');
-        if (v) v.focus();
-      });
+      video.addEventListener('keydown', function(e) { e.stopPropagation(); });
+      video.addEventListener('click', function(e) { e.stopPropagation(); });
+    });
+
+    // Focus video when entering a video slide
+    Reveal.on('slidechanged', function() {
+      var v = Reveal.getCurrentSlide().querySelector('video');
+      if (v) v.focus();
+    });
+
+    // Fullscreen: disable Reveal.js keyboard entirely when video is fullscreen
+    document.addEventListener('fullscreenchange', function() {
+      var fsEl = document.fullscreenElement;
+      if (fsEl && fsEl.tagName === 'VIDEO') {
+        Reveal.configure({ keyboard: false, controls: false, touch: false });
+      } else {
+        Reveal.configure({ keyboard: true, controls: true, touch: true });
+      }
+    });
+    // Safari/webkit support
+    document.addEventListener('webkitfullscreenchange', function() {
+      var fsEl = document.webkitFullscreenElement;
+      if (fsEl && fsEl.tagName === 'VIDEO') {
+        Reveal.configure({ keyboard: false, controls: false, touch: false });
+      } else {
+        Reveal.configure({ keyboard: true, controls: true, touch: true });
+      }
     });
   })();
 </script>
